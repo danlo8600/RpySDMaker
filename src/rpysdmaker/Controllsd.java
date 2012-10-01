@@ -28,16 +28,17 @@ public class Controllsd {
                 hom.main(null);
             }else{
                 System.out.println("Nessuna SD Presente");
-                //Sdnotpresent err = new Sdnotpresent();
-                //Sdnotpresent.main();
+                Errornosd err = new Errornosd();
+                err.main(null);
             }
             
         } catch (IOException ex) {
             System.out.println("Error !!!");
-            //Sdnotpresent err = new Sdnotpresent();
-            //Sdnotpresent.main();
+            Errornosd err = new Errornosd();
+            err.main(null);
         } catch (NullPointerException nlpex){
-            //Sdnotpresent.main();
+            Errornosd err = new Errornosd();
+            err.main(null);
         }
     }
     
