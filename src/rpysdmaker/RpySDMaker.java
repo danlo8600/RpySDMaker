@@ -14,7 +14,7 @@ public class RpySDMaker {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Home hm = new Home();
-        hm.main(null);
+        Controllsd start = new Controllsd();
+        start.startHome();
     }
 }

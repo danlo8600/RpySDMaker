@@ -6,6 +6,6 @@ mv cnsys ../dist
 
 cd ../dist
 
-java -jar RpyMakeSD.jar
+java -jar RpySDMaker.jar
 
 rm cnsys

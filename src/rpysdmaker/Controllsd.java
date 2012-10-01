@@ -14,7 +14,10 @@ import java.io.IOException;
  */
 public class Controllsd {
 
-    public static void main(String[] args) {
+    private String sdpathname = null;
+    
+    
+    void startHome(){
         
         BufferedReader bf;
         
@@ -22,14 +25,15 @@ public class Controllsd {
             FileReader fl = new FileReader("cnsys");
             bf = new BufferedReader(fl);
             String cn = bf.readLine().toString();
-            if(cn.equals("/dev/mmcblk0")){
-                System.out.println("SD Presente");
-                Home hom = new Home();
-                hom.main(null);
-            }else{
+            if(cn.equals("")){
                 System.out.println("Nessuna SD Presente");
                 Errornosd err = new Errornosd();
                 err.main(null);
+            }else{
+                sdpathname = cn;
+                System.out.println("SD Presente to:" + sdpathname);
+                Home hom = new Home();
+                hom.main(sdpathname);
             }
             
         } catch (IOException ex) {
@@ -41,5 +45,4 @@ public class Controllsd {
             err.main(null);
         }
     }
-    
 }
