@@ -4,7 +4,9 @@
  */
 package rpysdmaker;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +23,7 @@ public class Home extends javax.swing.JFrame {
     private String comandDDfp = "dd bs=1M if=";
     private String comandDDsp = " of=";
     static private String sdpathname = null;
+    private static String opp = " && echo end > end";
     
     
     /**
@@ -157,18 +160,29 @@ public class Home extends javax.swing.JFrame {
 
     private void ok(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok
 
+        okbutton.setVisible(false);
+        exitbutton.setVisible(false);
+        BufferedReader bf;
         Runtime rt = Runtime.getRuntime();
+        String cn;
         String command = comandDDfp + pathname + comandDDsp + sdpathname;
-
+        
+        
         System.out.println(command);
         
+        
+        System.out.println("Inizio scrittura su SD ");
+        
         try {
-            System.out.println("Inizio scrittura su SD ");
             rt.exec(command);
+        
+            okbutton.setVisible(true);
+            exitbutton.setVisible(true);
+            
             Succes sc = new Succes();
             sc.main(null);
             System.out.println("SD pronta");
-        } catch (IOException ex) {
+         } catch (IOException ex) {
             System.out.println("Errore in scrittura su SD");
             Error er = new Error();
             er.main(null);

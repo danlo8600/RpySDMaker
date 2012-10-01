@@ -33,7 +33,6 @@ public class Succes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Succes");
-        setPreferredSize(new java.awt.Dimension(343, 166));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Succes");
