@@ -50,6 +50,7 @@ public class Home extends javax.swing.JFrame {
         name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RpySDMaker");
         setResizable(false);
 
         okbutton.setText("Ok");
@@ -164,9 +165,13 @@ public class Home extends javax.swing.JFrame {
         try {
             System.out.println("Inizio scrittura su SD ");
             rt.exec(command);
+            Succes sc = new Succes();
+            sc.main(null);
             System.out.println("SD pronta");
         } catch (IOException ex) {
             System.out.println("Errore in scrittura su SD");
+            Error er = new Error();
+            er.main(null);
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ok
