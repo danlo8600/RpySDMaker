@@ -6,7 +6,6 @@ package rpysdmaker;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -160,6 +159,7 @@ public class Home extends javax.swing.JFrame {
 
     private void ok(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok
 
+        int val = 10;
         okbutton.setVisible(false);
         exitbutton.setVisible(false);
         BufferedReader bf;
@@ -167,15 +167,23 @@ public class Home extends javax.swing.JFrame {
         String cn;
         String command = comandDDfp + pathname + comandDDsp + sdpathname;
         
-        
         System.out.println(command);
         
-        
         System.out.println("Inizio scrittura su SD ");
-        
+            
         try {
-            rt.exec(command);
-        
+            Process pr = rt.exec(command);
+            Wait wt = new Wait();
+            wt.main(null);
+            while(val != 0){
+                try{
+                    val = pr.exitValue();
+                } catch (IllegalThreadStateException ilthex){
+                    val = 10;
+                }
+            }
+            
+            wt.setVisible(false);
             okbutton.setVisible(true);
             exitbutton.setVisible(true);
             
